@@ -14,7 +14,7 @@ Value is available as input.value, textarea.value, select.value, etc. (For check
 
 
 ==>> Events focus/blur <<==
-The focus event is called on focusing, and blur – when the element loses the focus.
+The focus event is called on focusing,and blur – when the element loses the focus.
 
 Let’s use them for validation of an input field.
 
