@@ -1,0 +1,8 @@
+In JavaScript, closures are a powerful feature that allows a function to "remember" and access its lexical scope even when the function is executed outside of that scope. Closures are created when a function is defined inside another function, and the inner function retains access to the variables of the outer function, even after the outer function has finished executing.
+
+>> How Closures Work
+When a function is created, it captures the variables in its surrounding lexical environment. If that function is returned or assigned to another variable, it carries its lexical scope with it.
+
+>> Key Concepts:
+Lexical Scoping: Functions have access to variables from their parent scopes.
+Persistence: Even if the parent function has finished executing, the inner function can still access the parent's variables because of the closure.

@@ -1,0 +1,54 @@
+=>> ".classList" :
+The .classList property in JavaScript provides a convenient way to work with the classes of an HTML element. 
+Unlike .className, it allows you to add, remove, toggle, or check individual classes without affecting other existing classes.
+
+Key Features of .classList =>>
+
+1> Returns a DOMTokenList:
+= A special type of list representing the classes of an element.
+= It’s iterable and provides various methods for class manipulation.
+
+2> Does Not Overwrite Other Classes:
+=  You can modify specific classes without replacing all existing ones.
+
+
+=>> Common Methods <<=
+1> .add(className, ...) :
+Adds one or more classes to the element. If a class already exists, it is ignored.
+Can Add Multiple Classes
+
+const element = document.getElementById("myDiv");
+element.classList.add("new-class", "highlight");
+Result:
+<div id="myDiv" class="new-class highlight"></div>
+
+2> .remove(className, ...)
+Removes one or more classes from the element. If the class does not exist, it is ignored.
+
+const element = document.getElementById("myDiv");
+element.classList.remove("highlight", "old-class");
+
+3> .toggle(className, [force])
+
+Toggles a class:
+
+If the class exists, it is removed.
+If it doesn’t exist, it is added.
+The optional force parameter ensures the class is added (true) or removed (false).
+
+const element = document.getElementById("myDiv");
+element.classList.toggle("hidden"); // Toggles the "hidden" class
+element.classList.toggle("active", true); // Ensures "active" class is added
+element.classList.toggle("disabled", false); // Ensures "disabled" class is removed
+
+4> .contains(className)
+Checks if the element contains a specific class. Returns true or false.
+
+const element = document.getElementById("myDiv");
+console.log(element.classList.contains("new-class")); // Output: true or false
+
+5> .replace(oldClass, newClass)
+Replaces an existing class with a new one. If the old class does not exist, nothing happens.
+
+const element = document.getElementById("myDiv");
+element.classList.replace("old-class", "new-class");

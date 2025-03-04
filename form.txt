@@ -1,0 +1,33 @@
+=> Form navigation:
+
+document.forms =>
+A form is available as document.forms[name/index].
+
+form.elements =>
+Form elements are available as form.elements[name/index], or can use just form[name/index]. 
+The elements property also works for <fieldset>.
+
+element.form =>
+Elements reference their form in the form property.
+
+Value is available as input.value, textarea.value, select.value, etc. (For checkboxes and radio buttons, use input.checked to determine whether a value is selected.)
+
+
+==>> Events focus/blur <<==
+The focus event is called on focusing, and blur – when the element loses the focus.
+
+Let’s use them for validation of an input field.
+
+In the example below:
+
+The blur handler checks if the field has an email entered, and if not – shows an error.
+The focus handler hides the error message (on blur it will be checked again):
+
+Summary
+Data change events:
+
+Event	        Description	                        Specials
+change	        A value was changed.	            For text inputs triggers on focus loss.
+input	        For text inputs on every change.	Triggers immediately unlike change.
+cut/copy/paste	Cut/copy/paste actions.	            The action can be prevented.
+                                                    clipboardData property gives access to the clipboard. 

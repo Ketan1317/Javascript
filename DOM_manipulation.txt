@@ -1,0 +1,78 @@
+NOTE ==>> Beware: “innerHTML+=” does a full overwrite
+We can append HTML to an element by using elem.innerHTML+="more html".
+
+1> innerHTML ==>> The innerHTML property represents the HTML content inside an element, excluding the element itself. It includes only the child elements, text, and other content within the opening and closing tags of the selected element.
+Replaces the inner content of the element.
+
+const container = document.getElementById("container");
+console.log(container.innerHTML);
+// Output: "<p>Hello, World!</p><span>Welcome to DOM manipulation.</span>"
+
+2> outerHTML ==>> The outerHTML property represents the HTML content of the element itself, including the element's opening and closing tags. It provides the complete HTML markup for the element and its children.
+Replaces the entire element itself.
+
+const container = document.getElementById("container");
+console.log(container.outerHTML);
+// Output: "<div id="container"><p>Hello, World!</p><span>Welcome to DOM manipulation.</span></div>"
+
+3> innerText ==>>
+Definition:(Same jaisa UI pe render hoga vaisa hi dikhega)
+innerText represents the text inside an element as it is visually displayed to the user. It takes into account CSS styles such as display: none, visibility, and other rendering rules.
+Only retrieves text that is visible on the page.
+
+
+4> textContent
+Definition:
+textContent represents the raw text content of an element and all its descendants. It includes all text, whether visible or hidden, and ignores CSS styles.
+Retrieves all text within the element, including hidden text.
+It returns the text exactly as it appears in the DOM, without considering line breaks or visual formatting.
+
+5> Steps to Create an Element and Append It:
+=> Use document.createElement(tagName) to create a new element.
+=> Set attributes or content (e.g., id, class, textContent, etc.) for the new element.
+=> Use appendChild() to add the new element as a child of an existing element in the DOM.
+
+
+6> insertAdjacentElement() Imp.
+    // elem.insertAdjacentText(where, text)
+The insertAdjacentElement() method in JavaScript allows you to insert an element into the DOM at a specified position relative to another element. It provides a flexible way to add elements without replacing existing content.
+
+Syntax:
+targetElement.insertAdjacentElement(position, newElement);
+
+=> targetElement: The reference element where the new element will be inserted relative to.
+=> newElement: The element to be inserted.
+=> position: A string indicating where the new element should be inserted. Possible values are:
+> "beforebegin": Before the targetElement itself.
+> "afterbegin": Inside the targetElement, before its first child.
+> "beforeend": Inside the targetElement, after its last child.
+> "afterend": After the targetElement itself.
+
+7> removeChild()
+The removeChild() method in JavaScript is used to remove a specific child element from its parent. It requires both a reference to the parent element and the child element you want to remove.
+
+Syntax:
+parentElement.removeChild(childElement);
+
+Note =>> If you don't have the parent reference, you can use childElement.parentNode to get it.
+
+
+==>> SUMMARY <<==
+
+Methods to create new nodes:
+> document.createElement(tag) – creates an element with the given tag,
+> document.createTextNode(value) – creates a text node (rarely used),
+> elem.cloneNode(deep) – clones the element, if deep==true then with all descendants.
+
+Insertion and removal:
+> node.append(...nodes or strings) – insert into node, at the end,
+> node.prepend(...nodes or strings) – insert into node, at the beginning,
+> node.before(...nodes or strings) –- insert right before node,
+> node.after(...nodes or strings) –- insert right after node,
+> node.replaceWith(...nodes or strings) –- replace node.
+> node.remove() –- remove the node.
+Text strings are inserted “as text”.
+
+
+Clear the element:
+elem.innerHTML = '';

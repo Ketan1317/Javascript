@@ -1,0 +1,48 @@
+let user = {
+  name: 'John',
+  surname: 'Smith'
+};
+
+let response = await fetch('/article/fetch/post/user', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8'
+  },
+  body: JSON.stringify(user)
+});
+
+
+Explanation:
+1. let user = { name: 'John', surname: 'Smith' };
+You are creating a JavaScript object named user with two properties:
+name: 'John'
+surname: 'Smith'
+
+2. fetch('/article/fetch/post/user', {...}):
+The fetch function is used to make a network request to the server.
+In this case, it is sending a POST request to the URL /article/fetch/post/user.
+
+3. Request Configuration (Second Argument of fetch):
+method: 'POST':
+This specifies that you are making a POST request.
+A POST request is typically used to send data to the server.
+headers:
+
+This contains metadata about the request. Here, you're telling the server that the body of the request contains JSON data:
+'Content-Type': 'application/json;charset=utf-8'
+application/json: The data being sent is in JSON format.
+charset=utf-8: Ensures proper encoding for special characters.
+
+
+>> Response properties =>
+response.json() – parse the response as JSON object,
+response.status – HTTP code of the response,
+response.ok – true if the status is 200-299.
+response.headers – Map-like object with HTTP headers.
+
+
+>> Fetch options so far =>
+
+method – HTTP-method,
+headers – an object with request headers (not any header is allowed),
+body – the data to send (request body) as string, FormData, BufferSource, Blob or UrlSearchParams object.

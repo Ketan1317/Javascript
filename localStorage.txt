@@ -1,0 +1,35 @@
+Web storage objects localStorage and sessionStorage allow to save key/value pairs in the browser.
+
+What’s interesting about them is that the data survives a page refresh (for sessionStorage) and even a full browser restart (for localStorage).
+
+==> LOCALSTORAGE <==
+The main features of localStorage are:
+
+Shared between all tabs and windows from the same origin.
+The data does not expire. It remains after the browser restart and even OS reboot.
+
+>> Both storage objects provide the same methods and properties:
+=> Use Object.keys to get all keys.
+setItem(key, value) – store key/value pair.
+getItem(key) – get the value by key.
+removeItem(key) – remove the key with its value.
+clear() – delete everything.
+key(index) – get the key on a given position.
+length – the number of stored items.
+
+✔️One way is to loop over them as over an array =>>
+for(let i=0; i<localStorage.length; i++) {
+  let key = localStorage.key(i);
+  alert(`${key}: ${localStorage.getItem(key)}`);
+}
+
+✔️…Or just get the “own” keys with Object.keys and then loop over them if needed:
+let keys = Object.keys(localStorage);
+for(let key of keys) {
+  alert(`${key}: ${localStorage.getItem(key)}`);
+}
+
+==> SessionStorage <==
+> The sessionStorage exists only within the current browser tab.
+> Another tab with the same page will have a different storage.
+> The data survives page refresh, but not closing/opening the tab.

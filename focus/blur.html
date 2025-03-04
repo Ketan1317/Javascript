@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <style>
+        .invalid {
+            color: red;
+            border: 2px solid red;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <label for="email">Please Enter Your Email:</label>
+    <input type="text" id="email">
+    <div class="error"></div>
+
+    <script>
+        const input = document.getElementById('email'); // Select the input element
+        const error = document.querySelector('.error'); // Select the error message container
+
+        input.onblur = function () {
+            if (!input.value.includes('@')) {
+                input.classList.add('invalid');
+                error.innerHTML = 'Invalid Email';
+            }
+        };
+
+        input.onfocus = function () {
+            if (input.classList.contains('invalid')) {
+                input.classList.remove('invalid');
+                error.innerHTML = '';
+            }
+        };
+    </script>
+</body>
+</html>

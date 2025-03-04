@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            display: none;
+            border: 2px solid black;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            width: 20%;
+            padding: 20px;
+            position: relative;
+            left: 40%;
+            top: 50%;
+        }
+
+        .trans {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .ok,
+        .cancel {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <h1>Click the button given Below:</h1>
+        <button class="btn">Click here to fill the form</button>
+
+        <main>
+            <p>Enter something Smart:</p><br>
+            <input type="text" id="smart" placeholder="Enter something"><br>
+            <button class="ok">OK</button>
+            <button class="cancel">Cancel</button>
+        </main>
+    </div>
+
+    <script>
+        const contain = document.querySelector('.contain');
+        const btn = document.querySelector('.btn');
+        const main = document.querySelector('main');
+        const okBtn = document.querySelector('.ok');
+        const input = document.getElementById('smart');
+        const cancelBtn = document.querySelector('.cancel');
+
+        btn.onclick = function () {
+            main.style.display = 'block';
+            contain.classList.add('trans');
+        };
+
+        okBtn.onclick = () => {
+            if (input.value === "") {
+                alert("Please enter something!");
+            } else {
+                alert(`You entered: ${input.value}`);
+                input.value = ""; // Clear the input field
+            }
+        };
+
+        cancelBtn.onclick = function () {
+            main.style.display = 'none'; // Hide the form
+            contain.classList.remove('trans'); // Remove the transparent background
+            input.value = ""; // Clear the input field
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+REFLOW and REPAINT in the Browser Rendering Process.
+When a browser renders a webpage, it follows a structured rendering pipeline to display the content on the screen. Reflow and Repaint are two critical steps in this process.
+
+1. Reflow:
+What is Reflow? Reflow is the process of recalculating the positions and dimensions of elements in the DOM. It happens whenever the layout of the page changes, and the browser needs to compute how and where elements should appear on the screen.
+
+2. Repaint
+What is Repaint? Repaint is the process of redrawing elements on the screen without affecting their layout. It happens when changes are made to visual properties that do not influence layout, such as color, visibility, or background styles.
+
+
+==>> What is a Document Fragment in JavaScript?
+A Document Fragment is a lightweight, minimal, and temporary container for DOM elements. It acts like a regular DOM node but is not part of the main DOM tree. Instead, it is used as an intermediary structure to build or manipulate multiple nodes before inserting them into the DOM.
+
+Using a Document Fragment avoids these intermediate reflows and repaints, as it works in memory and updates the DOM only once when appended.
+
+let fragment = document.createDocumentFragment();
+
+for (let i = 1; i <= 5; i++) {
+    let newItem = document.createElement("li");
+    newItem.textContent = `Item ${i}`;
+    fragment.appendChild(newItem);
+}

@@ -1,0 +1,93 @@
+>> JavaScript "Promises" are objects that represent the eventual outcome of an asynchronous operation. They allow you to handle asynchronous tasks in a more manageable way compared to traditional callbacks.
+
+>> A promise is created using the "new Promise()" constructor, 
+which takes a function with two parameters: resolve and reject.
+==> Basically we are creating an arrow function which takes two parameters <==
+
+Pending: The operation has not yet completed.
+Fulfilled: The operation completed successfully.
+Rejected: The operation failed.
+
+const myPromise = new Promise((resolve, reject) => {
+  // Simulate an asynchronous operation (e.g., an API call)
+  setTimeout(() => {
+    const success = true; // Change to false to simulate an error
+    if (success) {
+      resolve("Operation successful!");
+    } else {
+      reject("Operation failed!");
+    }
+  }, 2000);
+});
+
+
+NOTE ==>> resolve(value): Called when the asynchronous operation completes successfully.
+          reject(reason): Called when the operation fails.
+
+
+==>>  Handling Promises with .then() and .catch()  <<==
+Once a promise is created, you can attach handlers to it using the .then() and .catch() methods.
+
+>>1 .then() Method
+Purpose:
+.then() is used to specify what should happen when the promise is fulfilled (resolved).
+
+Syntax:
+myPromise.then(function(result) {
+  // Code to execute on success
+  console.log(result); // "Operation successful!"
+});
+
+> Chaining:
+.then() can be chained to perform sequential asynchronous operations.
+
+myPromise
+  .then(result => {
+    console.log(result);  // "Operation successful!"
+    return "Next step result";
+  })
+  .then(nextResult => {
+    console.log(nextResult);  // "Next step result"
+  });
+
+
+  .catch() Method
+Purpose:
+.catch() is used to specify what should happen if the promise is rejected (i.e., an error occurs).
+
+Syntax:
+myPromise.catch(function(error) {
+  // Code to execute on error
+  console.error(error); // "Operation failed!"
+});
+
+
+
+NOTES:
+Key Points =>>
+1. Promises represent asynchronous operations.
+2. .then() handles successful resolutions.
+3. .catch() handles errors or rejections.
+4. Chaining: Multiple .then() calls allow sequential processing of asynchronous operations.
+5. Error Propagation: Any error thrown in a .then() will be caught by the subsequent .catch().
+
+
+
+NOTE => Promise.all is a method that allows you to execute multiple promises concurrently and wait for all of them to either resolve or for one of them to reject.
+
+>> How Promise.all Works:
+It takes an array (or iterable) of promises as its argument.
+It returns a single promise.
+If all the input promises resolve, the returned promise resolves with an array of the results.
+If any of the input promises reject, the returned promise rejects with the reason of the first promise that rejects.
+
+Syntax:
+Promise.all([promise1, promise2, promise3])
+    .then((results) => {
+        // This block runs if all promises are resolved.
+        console.log(results);
+    })
+    .catch((error) => {
+        // This block runs if any of the promises is rejected.
+        console.log(error);
+    });

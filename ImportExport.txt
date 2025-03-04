@@ -1,0 +1,69 @@
+What is a module?
+A module is just a file. 
+
+export ==> keyword labels variables and functions that should be accessible from outside the current module.
+import ==> allows the import of functionality from other modules.
+
+For instance, if we have a file sayHi.js exporting a function:
+// 📁 sayHi.js
+export function sayHi(user) {
+  alert(`Hello, ${user}!`);
+}
+
+…Then another file may import and use it:
+// 📁 main.js
+import {sayHi} from './sayHi.js';
+
+alert(sayHi); // function...
+sayHi('John'); // Hello, John!
+
+
+Export before declarations =>
+We can label any declaration as exported by placing export before it, be it a variable, function or a class.
+For instance, here all exports are valid:
+
+// export an array
+export let months = ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// export a constant
+export const MODULES_BECAME_STANDARD_YEAR = 2015;
+
+// export a class
+export class User {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+
+NOTE => Export apart from declarations
+Also, we can put export separately.
+Here we first declare, and then export.
+Syntax:
+export {sayHi, sayBye}; // a list of exported variables
+
+>> Usually, we put a list of what to import in curly braces import {...}, like this:
+// 📁 main.js
+import {sayHi, sayBye} from './say.js';
+sayHi('John'); // Hello, John!
+sayBye('John'); // Bye, John!
+
+>> But if there’s a lot to import, we can import everything as an object using import * as <obj>, for instance:
+// 📁 main.js
+import * as say from './say.js';
+say.sayHi('John');
+say.sayBye('John');
+
+==> Export default
+> In practice, there are mainly two kinds of modules.
+> Modules that contain a library, pack of functions, like say.js above.
+Modules that declare a single entity, e.g. a module user.js exports only class User.
+
+The Difference:
+Regular exports: Export multiple things, and you use {} to pick what you need.
+Default exports: Export only one thing, so no {} is required while importing.
+
+==> Re-export:
+“Re-export” syntax export ... from ... allows to import things and immediately export them (possibly under another name) 
+
+export {sayHi} from './say.js'; // re-export sayHi

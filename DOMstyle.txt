@@ -1,0 +1,57 @@
+1> ".style" =>>
+Definition: The .style property is an object that allows you to set or get individual CSS properties for an element.
+Syntax: element.style.propertyName = value;
+Use Case: Use when you want to modify specific CSS properties.
+
+const element = document.getElementById("myDiv");
+// Set styles
+element.style.color = "red";
+element.style.backgroundColor = "yellow";
+element.style.fontSize = "20px";
+// Get styles
+console.log(element.style.color); // Output: "red"
+
+
+2> ".style.cssText" =>>
+Definition: The .style.cssText property is a string representation of all inline styles for an element. Setting it replaces the entire inline style string.
+Syntax: element.style.cssText = "property1: value1; property2: value2;"
+
+const element = document.getElementById("myDiv");
+// Set multiple styles at once
+element.style.cssText = "color: blue; background-color: lightgrey; font-size: 18px;";
+// Append new styles (without removing existing ones)
+element.style.cssText += "border: 1px solid black;";
+
+3> ".setAttribute()" =>>
+The .setAttribute() method in JavaScript is used to set or update the value of an attribute on an HTML element. 
+It's a versatile and widely used method for managing attributes dynamically.
+
+Syntax:
+element.setAttribute(name, value);
+
+element: The DOM element you want to modify.
+name: The name of the attribute to set (e.g., id, class, src).
+value: The value to assign to the attribute.
+
+Example:
+=>> Setting a New Attribute
+<img id="myImage">
+const image = document.getElementById("myImage");
+image.setAttribute("src", "example.jpg");
+image.setAttribute("alt", "A description of the image");
+
+Result:
+<img id="myImage" src="example.jpg" alt="A description of the image">
+
+
+3> ".className"
+The .className property in JavaScript is used to get or set the class attribute of an HTML element. It allows you to manipulate the CSS classes of an element dynamically.
+
+Syntax:
+
+Get the class name:
+element.className;
+
+Set (overwrite) the class names:
+element.className = "new-class";
+

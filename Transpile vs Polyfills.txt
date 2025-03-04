@@ -1,0 +1,24 @@
+1. Polyfills:
+What are Polyfills?
+A polyfill is a piece of code (usually a library or script) that provides backward compatibility for newer JavaScript features in environments where they are not natively supported.
+
+How Polyfills Work:
+They detect whether a specific feature exists in the current environment.
+If not, they add a custom implementation of that feature.2. Transpilers
+
+2. Transpilers:
+What are Transpilers?
+A transpiler is a tool that converts modern JavaScript (ES6+ or TypeScript) into an older version of JavaScript (e.g., ES5) so it can run in environments that do not support the latest features.
+
+How Transpilers Work:
+They parse the code written in modern JavaScript syntax.
+They transform the code into an equivalent, older version of JavaScript.
+
+Examples of Transpilers:
+TypeScript Compiler (tsc): Converts TypeScript to JavaScript.
+
+
+Summary
+Polyfills add missing APIs at runtime.
+Transpilers rewrite modern syntax into older syntax at build time.
+Together, they ensure compatibility across all browsers and environments, enabling developers to use the latest JavaScript features without worrying about compatibility issues.

@@ -1,0 +1,33 @@
+1 ==>> Synchronous Code:
+Definition:
+Synchronous code runs sequentially, one line at a time. Each operation must complete before the next one begins.
+
+Characteristics:
+> Blocking: Each operation blocks the next one until it finishes.
+Predictable Order: Code executes in the exact order it is written.
+
+example:
+console.log("Step 1");
+console.log("Step 2");
+console.log("Step 3");
+
+
+2 ==>> Asynchronous Code:
+Definition:
+Asynchronous code allows JavaScript to start a task and move on to other tasks before that first task finishes. When the asynchronous task is complete, it notifies your code via callbacks, promises, or async/await.
+
+Characteristics:
+> Non-blocking: Long-running tasks (e.g., network requests, timers, file I/O) do not block the execution of subsequent code.
+> Concurrent Handling: Uses the event loop to handle asynchronous tasks while continuing to execute other code.
+
+example: 
+Async/await
+callbacks
+Promises
+
+NOTE ==>> The 'forEach' loop is a method available on arrays in JavaScript that allows you to execute a provided function once for each element in the array.
+SYNTAX:
+array.forEach((element) => {
+  // Your code here
+});
+

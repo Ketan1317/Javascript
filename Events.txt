@@ -1,0 +1,68 @@
+HTML attribute: onclick="...".
+DOM property: elem.onclick = function.
+Methods: elem.addEventListener(event, handler[, phase]) to add, removeEventListener to remove.
+
+
+Events in JavaScript are actions or occurrences that happen in the browser, such as a user clicking a button, hovering over an element, pressing a key, or when the page loads.
+JavaScript provides a robust event-handling system to listen for and respond to these events.
+
+Event Listeners:
+const btn = document.querySelector("button");
+btn.addEventListener("click", () => {
+    alert("Button clicked!");
+});
+
+Inline Event Handling:
+<button onclick="alert('Button clicked!')">Click Me</button>
+
+Using on<Event> Properties:
+const button = document.querySelector("button");
+button.onclick = function () {
+    alert("Button clicked!");
+};
+
+==>>  Types of Events  <<==
+
+Mouse Events:
+
+click: Triggered when an element is clicked.
+dblclick: Triggered when an element is double-clicked.
+mousedown: Triggered when a mouse button is pressed down.
+mouseup: Triggered when a mouse button is released.
+mouseover: Triggered when the mouse pointer moves over an element.
+mouseout: Triggered when the mouse pointer leaves an element.
+
+Keyboard Events:
+
+keydown: Triggered when a key is pressed.
+keyup: Triggered when a key is released.
+keypress: (Deprecated) Triggered when a key is pressed but does not distinguish between keys like keydown.
+
+Form Events:
+
+submit: Triggered when a form is submitted.
+change: Triggered when the value of an input, select, or textarea changes.
+focus: Triggered when an element gains focus.
+blur: Triggered when an element loses focus.
+input: Triggered when the value of an input element changes.
+
+Window Events:
+
+load: Triggered when the entire page (including images, stylesheets, etc.) is loaded.
+resize: Triggered when the browser window is resized.
+scroll: Triggered when the user scrolls the page.
+unload: Triggered when the page is being unloaded.
+
+Drag and Drop Events:
+
+dragstart: Triggered when a drag operation starts.
+drag: Triggered while an element is being dragged.
+dragend: Triggered when a drag operation ends.
+dragover: Triggered when a dragged element is over a valid drop target.
+drop: Triggered when a dragged element is dropped on a target.
+
+Touch Events (for mobile):
+
+touchstart: Triggered when a touch starts.
+touchmove: Triggered when a touch moves.
+touchend: Triggered when a touch ends.
