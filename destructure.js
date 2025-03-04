@@ -20,3 +20,4 @@ let [firstName, surname] = arr;
 
 alert(firstName); // John
 alert(surname);  // Smith
+
